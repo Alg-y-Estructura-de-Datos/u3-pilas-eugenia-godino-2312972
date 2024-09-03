@@ -22,7 +22,7 @@ void Ocurrencia (Pila<int> &pila, int valor){
     while (!pilaAux.esVacia()) {
         int aux;
         aux = pilaAux.pop();
-        if(encontrado && contador ==1 && aux == valor ){
+        if(encontrado && cont ==1 && aux == valor ){
 
         }else{
             pila.push(aux);
