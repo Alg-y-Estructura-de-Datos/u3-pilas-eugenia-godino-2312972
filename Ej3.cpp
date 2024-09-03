@@ -30,14 +30,19 @@ void Ocurrencia (Pila<int> &pila, int valor){
     }
 }
 
-void MostrarPila (Pila<int> &pila){
+void MostrarPila(Pila<int>& pila) {
     Pila<int> pilaAux;
-    while (!pila.esVacia()){
+
+    // Desapilar elementos para mostrar sin perderlos
+    while (!pila.esVacia()) {
         int valor = pila.pop();
         cout << valor << " ";
         pilaAux.push(valor);
     }
-    while (!pilaAux.esVacia()){
+    cout << endl;
+
+    // Restaurar la pila original
+    while (!pilaAux.esVacia()) {
         pila.push(pilaAux.pop());
     }
 }

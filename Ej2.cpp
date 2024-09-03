@@ -17,14 +17,17 @@ void Reemplazar (Pila<int> &pila, int viejo, int nuevo){
     }
 }
 
-void MostrarPila (Pila<int> &pila){
+void MostrarPila(Pila<int>& pila) {
     Pila<int> pilaAux;
-    while (!pila.esVacia()){
+
+    while (!pila.esVacia()) {
         int valor = pila.pop();
         cout << valor << " ";
         pilaAux.push(valor);
     }
-    while (!pilaAux.esVacia()){
+    cout << endl;
+
+    while (!pilaAux.esVacia()) {
         pila.push(pilaAux.pop());
     }
 }
