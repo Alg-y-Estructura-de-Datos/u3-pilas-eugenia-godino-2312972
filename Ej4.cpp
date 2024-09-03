@@ -2,8 +2,36 @@
 #include "Pila/Pila.h"
 using namespace std;
 
-void suma (Pila<int> &pila, int n){
+int suma (Pila<int> &pila, int n){
+    Pila<int> pilaAux;
+    bool encontrado = false;
+    int suma = 0;
+    while (!pila.esVacia()){
+        int valor = pila.pop();
+        if (valor == n){
+            encontrado = true;
+            pilaAux.push(valor);
+        } else {
+            suma += valor;
+            pilaAux.push(valor);
+        }
+    }
 
+    while (!pilaAux.esVacia()){
+        pila.push(pilaAux.pop());
+    }
+
+    if (!encontrado){
+        int sumaTotal = 0;
+        while (!pila.esVacia()){
+            sumaTotal += pila.pop();
+        }
+        while (!pilaAux.esVacia()){
+            pila.push(pilaAux.pop());
+        }
+        return sumaTotal;
+    }
+    return suma;
 }
 
 void MostrarPila(Pila<int>& pila) {
@@ -36,4 +64,6 @@ int main (){
 
     cout << "La pila es: "<<endl; 
     MostrarPila(pila);
+    cout<< "La suma de los elementos es: "<<suma(pila, n);
+    return 0;
 }
